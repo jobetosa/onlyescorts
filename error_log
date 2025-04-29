@@ -1,0 +1,41 @@
+[12-Mar-2025 15:04:29 America/Santiago] PHP Fatal error:  Cannot declare class App\Console\Kernel, because the name is already in use in /home/u281327474/domains/onlyescorts.cl/public_html/app/Console/Commands/Kernel.php on line 9
+[12-Mar-2025 16:17:17 America/Santiago] PHP Fatal error:  Cannot use Spatie\Sitemap\SitemapGenerator as SitemapGenerator because the name is already in use in /home/u281327474/domains/onlyescorts.cl/public_html/app/Console/Commands/GenerateSitemap.php on line 10
+[12-Mar-2025 19:52:39 UTC] PHP Warning:  require_once(phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8): Failed to open stream: phar error: "vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8" is not a file in phar "/home/u281327474/composer.phar" in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 19:52:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php:115
+Stack trace:
+#0 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(69): require()
+#1 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(59): composerRequireComposerPhar1603530979()
+#2 phar:///home/u281327474/composer.phar/vendor/autoload.php(7): ComposerAutoloaderInitComposerPhar1603530979::getLoader()
+#3 phar:///home/u281327474/composer.phar/src/bootstrap.php(15): include('phar:///home/u2...')
+#4 phar:///home/u281327474/composer.phar/src/bootstrap.php(18): includeIfExists()
+#5 phar:///home/u281327474/composer.phar/bin/composer(8): require('phar:///home/u2...')
+#6 /home/u281327474/composer.phar(24): require('phar:///home/u2...')
+#7 {main}
+  thrown in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 19:52:48 UTC] PHP Warning:  require_once(phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8): Failed to open stream: phar error: "vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8" is not a file in phar "/home/u281327474/composer.phar" in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 19:52:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php:115
+Stack trace:
+#0 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(69): require()
+#1 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(59): composerRequireComposerPhar1603530979()
+#2 phar:///home/u281327474/composer.phar/vendor/autoload.php(7): ComposerAutoloaderInitComposerPhar1603530979::getLoader()
+#3 phar:///home/u281327474/composer.phar/src/bootstrap.php(15): include('phar:///home/u2...')
+#4 phar:///home/u281327474/composer.phar/src/bootstrap.php(18): includeIfExists()
+#5 phar:///home/u281327474/composer.phar/bin/composer(8): require('phar:///home/u2...')
+#6 /home/u281327474/composer.phar(24): require('phar:///home/u2...')
+#7 {main}
+  thrown in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 19:54:18 UTC] PHP Warning:  require_once(phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8): Failed to open stream: phar error: "vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8" is not a file in phar "/home/u281327474/composer.phar" in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 19:54:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/Resources/mb_convert_variables.php8' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php:115
+Stack trace:
+#0 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(69): require()
+#1 phar:///home/u281327474/composer.phar/vendor/composer/autoload_real.php(59): composerRequireComposerPhar1603530979()
+#2 phar:///home/u281327474/composer.phar/vendor/autoload.php(7): ComposerAutoloaderInitComposerPhar1603530979::getLoader()
+#3 phar:///home/u281327474/composer.phar/src/bootstrap.php(15): include('phar:///home/u2...')
+#4 phar:///home/u281327474/composer.phar/src/bootstrap.php(18): includeIfExists()
+#5 phar:///home/u281327474/composer.phar/bin/composer(8): require('phar:///home/u2...')
+#6 /home/u281327474/composer.phar(24): require('phar:///home/u2...')
+#7 {main}
+  thrown in phar:///home/u281327474/composer.phar/vendor/symfony/polyfill-mbstring/bootstrap.php on line 115
+[12-Mar-2025 20:57:03 America/Santiago] PHP Fatal error:  Cannot declare class App\Console\Kernel, because the name is already in use in /home/u281327474/domains/onlyescorts.cl/public_html/app/Console/Commands/Kernel.php on line 9
+[12-Mar-2025 20:57:21 America/Santiago] PHP Fatal error:  Cannot declare class App\Console\Kernel, because the name is already in use in /home/u281327474/domains/onlyescorts.cl/public_html/app/Console/Commands/Kernel.php on line 9
+[12-Mar-2025 20:57:30 America/Santiago] PHP Fatal error:  Cannot declare class App\Console\Kernel, because the name is already in use in /home/u281327474/domains/onlyescorts.cl/public_html/app/Console/Commands/Kernel.php on line 9

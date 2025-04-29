@@ -1,0 +1,58 @@
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+    [HTTP_ACCEPT_LANGUAGE] => es-CO,es-419;q=0.9,es;q=0.8,en;q=0.7
+    [HTTP_COOKIE] => wp-settings-1=posts_list_mode%3Dlist%26libraryContent%3Dbrowse%26mfold%3Do%26editor%3Dtinymce; wp-settings-time-1=1729129194; only_escorts_18=true; only_escorts_ubicacion=santiago-de-chile; _ga=GA1.2.1648185661.1737666605; _gid=GA1.2.367433463.1737666605; _ga_9Q6H0QETRF=GS1.2.1737666605.1.0.1737666605.60.0.0; XSRF-TOKEN=eyJpdiI6Ik1lR2kreWlUNnBINEQrTm5QTnpGZkE9PSIsInZhbHVlIjoiTy9wTFVpWWdXQUd2TGhaS0ZBeHF2bHBrQkpOcUFiK0pBdTYyMUpFRW9hU1dHc0RWbzdjRmozRXBxWVp3MnpsSlhwWkxDVHFsd2duT3hrUEZ1ZE5QSGU5VGk1d0EvcFhGWEVOUk9aZjNwOUNKbkc1NkhaeFc1MzBCS0h2bkNkS0UiLCJtYWMiOiJhNTc4M2Y1MGI4ZWQ1ZDM0OTlmYjAxNTUxM2RlMDdjY2ZiNDYxNTVjYjZmZDBiNzY5NGQ0OTA3NzFhOWU0ZGYxIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IldLcmdETEhuUmFTa3VJak5paWRqdEE9PSIsInZhbHVlIjoiL0lnOVVGN2hTZkdYU21hQzJjRGtTM1ljUG1VYmQrVTMzZ2xKS0lRUDUyVnlwaUw0eVZBZlhNVnZ0L09LdHcwMXNLZk5xeWJ4SFhxa2xJNFpRaFRVVDVCNEJmaWJoQmpVN3ZKRWhFcUljRFBLM0JqV0g4bW4vN2p5NzZXTTRyNVMiLCJtYWMiOiIxZTdjNjY4OTQyYWU0Mzg5MTI0MjVmODA2OTNhYjY2NDIxNmVlMDcxMTk0MGVmODI1MTg2YTE2MjZiNzA1YWQ4IiwidGFnIjoiIn0%3D
+    [HTTP_HOST] => onlyescorts.cl
+    [HTTP_PRAGMA] => no-cache
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_SEC_CH_UA] => "Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_PRIORITY] => u=0, i
+    [DOCUMENT_ROOT] => /home/u281327474/domains/onlyescorts.cl/public_html
+    [REMOTE_ADDR] => 181.61.246.7
+    [REMOTE_PORT] => 10858
+    [SERVER_ADDR] => 62.72.60.202
+    [SERVER_NAME] => onlyescorts.cl
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /public/foro
+    [REDIRECT_URL] => /public/foro
+    [REDIRECT_REQUEST_METHOD] => GET
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => business
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [REDIRECT_STATUS] => 200
+    [X_SPDY] => HTTP3
+    [SSL_PROTOCOL] => QUIC
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u281327474/domains/onlyescorts.cl/public_html/public/index.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://onlyescorts.cl/public/foro
+    [SCRIPT_URL] => /public/foro
+    [SCRIPT_NAME] => /public/index.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => GET
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /public/index.php
+    [REQUEST_TIME_FLOAT] => 1737668225.8455
+    [REQUEST_TIME] => 1737668225
+)

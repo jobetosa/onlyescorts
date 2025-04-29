@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /public/
+Disallow: /admin/
+Disallow: /favoritos
+Disallow: /seo/

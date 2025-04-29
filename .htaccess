@@ -1,0 +1,111 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirigir todas las solicitudes a la carpeta public si no están ya en ella
+    
+
+    # Forzar HTTPS
+    #RewriteCond %{HTTPS} !=on
+    #RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # Redirigir www.sitio.com a sitio.com
+    #RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    #RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # Redirigir todo lo que apunte a /public hacia la raíz
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Redirigir de www a sin www (forzando HTTPS si es necesario)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # Asegurar que Laravel maneje las rutas
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+
+    # BLOQUEAR ACCESO A ARCHIVOS SENSIBLES
+    <FilesMatch "(\.env|\.htaccess|\.gitignore|composer\.lock|composer\.json|artisan)">
+        Require all denied
+    </FilesMatch>
+
+    # HABILITAR COMPRESIÓN (Mejor rendimiento)
+    #<IfModule mod_deflate.c>
+    #    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    #</IfModule>
+</IfModule>
+
+# Habilitar compresión Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript application/javascript application/json application/xml application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-font-woff font/ttf font/woff font/woff2 image/svg+xml
+    # Evitar compresión en algunos archivos
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|avif|zip|gz|rar|bz2|mp4|mp3|woff2)$ no-gzip dont-vary
+    Header append Vary: Accept-Encoding
+</IfModule>
+
+# Habilitar compresión Brotli (si está disponible)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/xml text/css text/javascript application/javascript application/json application/xml application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-font-woff font/ttf font/woff font/woff2 image/svg+xml
+    Header append Vary: Accept-Encoding
+</IfModule>
+
+# Políticas de caché para mejorar la velocidad de carga
+#<IfModule mod_expires.c>
+#    ExpiresActive On
+#
+#    # Caché de imágenes y archivos multimedia (1 año)
+#    ExpiresByType image/jpg "access plus 1 year"
+#    ExpiresByType image/jpeg "access plus 1 year"
+#    ExpiresByType image/png "access plus 1 year"
+#    ExpiresByType image/gif "access plus 1 year"
+#    ExpiresByType image/svg+xml "access plus 1 year"
+#    ExpiresByType image/webp "access plus 1 year"
+#    ExpiresByType video/mp4 "access plus 1 year"
+#    ExpiresByType audio/mpeg "access plus 1 year"
+#
+#    # Caché de fuentes (1 año)
+#    ExpiresByType application/x-font-woff "access plus 1 year"
+#    ExpiresByType application/x-font-woff2 "access plus 1 year"
+#    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+#    ExpiresByType font/ttf "access plus 1 year"
+#    ExpiresByType font/woff "access plus 1 year"
+#    ExpiresByType font/woff2 "access plus 1 year"
+#
+#    # Caché de CSS y JavaScript (1 mes)
+#    ExpiresByType text/css "access plus 1 month"
+#    ExpiresByType text/javascript "access plus 1 month"
+#    ExpiresByType application/javascript "access plus 1 month"
+#
+#    # Caché de documentos (1 semana)
+#    ExpiresByType text/html "access plus 1 week"
+#    ExpiresByType application/json "access plus 1 week"
+#    ExpiresByType application/xml "access plus 1 week"
+#</IfModule>
+
+# Habilitar control de caché con ETag y Cache-Control
+#<IfModule mod_headers.c>
+#    Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_URI} =~ m#\.(?:gif|jpe?g|png|webp|avif|svg|woff2|woff|ttf|css|js)$#"
+#    Header set Cache-Control "public, max-age=604800" "expr=%{REQUEST_URI} =~ m#\.(?:html|json|xml)$#"
+#    Header unset ETag
+#    FileETag None
+#</IfModule>
+
+# Deshabilitar caché para contenido dinámico
+<FilesMatch "\.(php|cgi|pl|htm|html|shtml)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
+# Evitar problemas de CORS con fuentes externas
+#<IfModule mod_headers.c>
+#    <FilesMatch "\.(eot|otf|ttf|woff|woff2|svg)$">
+#        Header set Access-Control-Allow-Origin "*"
+#    </FilesMatch>
+#</IfModule>
+
+# Habilitar Keep-Alive para mejorar la eficiencia de la conexión
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
