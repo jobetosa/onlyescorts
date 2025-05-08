@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <main class="container-fluid px-5">
+    <main class="inicio-container2 px-3">
         <div class="row">
             <section class="inicio-usuarios-section col-md-10">
                 <div class="inicio-card-wrapper w-100">
