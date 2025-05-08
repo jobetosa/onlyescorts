@@ -51,7 +51,7 @@ class EscortLocation extends Model
 
     public function getBarrio()
 {
-    $googleMapsKey = 'AIzaSyCSWHUhDz1SU6BqwE_qoklIGX3WpVlpSJA';
+    $googleMapsKey = 'AIzaSyA5y6Kc-C0tkecxJb3hUAgXh0BJBhTSWjY';
     $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$this->latitud},{$this->longitud}&key={$googleMapsKey}&language=es";
     
     try {

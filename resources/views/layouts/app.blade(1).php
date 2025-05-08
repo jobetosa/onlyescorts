@@ -454,7 +454,7 @@
             });
         });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSWHUhDz1SU6BqwE_qoklIGX3WpVlpSJA"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5y6Kc-C0tkecxJb3hUAgXh0BJBhTSWjY"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const escortperfilSwiper = new Swiper('.escortperfil-swiper', {
