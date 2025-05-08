@@ -5599,6 +5599,10 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³viles (480px y menor) */
 @media screen and (max-width: 480px) {
+    .swiper-wrapper1 {
+        text-align: center;
+        display: flex !important;
+    }
     main.container-fluid.px-5 {
         padding: 0px !important;
     }
