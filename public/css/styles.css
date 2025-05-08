@@ -5611,6 +5611,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     main.inicio-container2.px-3 {
         padding: 0px !important;
     }
+    .inicio-container2 {
+        padding-bottom: 32px;
+    }
     .navbar-bottom {
         justify-content: center;
     }
