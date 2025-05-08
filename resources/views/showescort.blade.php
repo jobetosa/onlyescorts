@@ -236,69 +236,9 @@
         </div>
 
         <div class="escortperfil-side-section">
-            <div class="escortperfil-actions">
-                <a href="https://api.whatsapp.com/send?phone={{ $usuarioPublicate->telefono }}&text=Hola%20{{ $usuarioPublicate->fantasia }}!%20Vi%20tu%20anuncio%20en%20OnlyEscorts%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20tus%20servicios.%20%C2%BFC%C3%B3mo%20est%C3%A1s?" class="escortperfil-btn disponible" target="_blank">
-                    <i class="fab fa-whatsapp"></i>&nbsp;WHATSAPP
-                </a>
-                <button class="escortperfil-btn contactar">CONTACTAR</button>
-            </div>
+            
 
-            <aside class="escortperfil-schedule d-none d-lg-block">
-                <h2 class="escortperfil-section-title">Horario</h2>
-                <div class="escortperfil-schedule-list">
-                    @php
-                        $dias = [
-                            'Lunes' => 'LUN',
-                            'Martes' => 'MAR',
-                            'Miércoles' => 'MIE',
-                            'Jueves' => 'JUE',
-                            'Viernes' => 'VIE',
-                            'Sábado' => 'SAB',
-                            'Domingo' => 'DOM'
-                        ];
-
-                        $disponibilidad = \App\Models\Disponibilidad::where('publicate_id', $usuarioPublicate->id)
-                            ->where('estado', 'activo')
-                            ->get();
-
-                        $disponibilidadMap = [];
-
-                        foreach($disponibilidad as $disp) {
-                            $horarioDesde = \Carbon\Carbon::parse($disp->hora_desde)->format('H:i');
-                            $horarioHasta = \Carbon\Carbon::parse($disp->hora_hasta)->format('H:i');
-
-                            $disponibilidadMap[$disp->dia] = [
-                                'hora_desde' => $horarioDesde,
-                                'hora_hasta' => $horarioHasta,
-                                'is_full_time' => ($horarioDesde === '00:00' && $horarioHasta === '23:59')
-                            ];
-                        }
-                    @endphp
-
-                    @foreach($dias as $diaCompleto => $diaAbrev)
-                        <div class="escortperfil-schedule-item {{ strtolower($diaCompleto) == strtolower(\Carbon\Carbon::now()->locale('es')->dayName) ? 'current-day' : '' }}">
-                            <span class="day-badge">{{ $diaAbrev }}</span>
-                            <span class="schedule-time">
-                                @if(isset($disponibilidadMap[$diaCompleto]))
-                                @if($disponibilidadMap[$diaCompleto]['is_full_time'])
-                                Full Time
-                                @else
-                                {{ $disponibilidadMap[$diaCompleto]['hora_desde'] }} - {{ $disponibilidadMap[$diaCompleto]['hora_hasta'] }} hs
-                                @endif
-                                @else
-                                No disponible
-                                @endif
-                            </span>
-                        </div>
-                    @endforeach
-                </div>
-
-                <div class="escortperfil-map-section">
-                    <h2 class="escortperfil-section-title">Ubicación</h2>
-                    <div id="escort-map" class="escort-map"></div>
-                </div>
-
-            </aside>
+            
             <div class="escortperfil-content">
                 <div class="escortperfil-section">
                     <h2 class="escortperfil-section-title">Sobre mí</h2>
@@ -313,31 +253,29 @@
                     </p>
                 </div>
                 <!-- Estas dos secciones deberían estar agrupadas -->
-                <div>
-                    <div class="escortperfil-section">
-                        <h2 class="escortperfil-section-title">Atributos</h2>
-                        <div class="escortperfil-attributes-list">
-                            @php
-                            // Decodificar los atributos del usuario
-                            $atributosIds = json_decode($usuarioPublicate->atributos, true);
-                            $atributosIds = is_array($atributosIds) ? $atributosIds : [];
+                <div class="escortperfil-section">
+                    <h2 class="escortperfil-section-title">Atributos</h2>
+                    <div class="escortperfil-attributes-list">
+                        @php
+                        // Decodificar los atributos del usuario
+                        $atributosIds = json_decode($usuarioPublicate->atributos, true);
+                        $atributosIds = is_array($atributosIds) ? $atributosIds : [];
 
-                            // Obtener los nombres de los atributos desde la base de datos
-                            $atributosNombres = \DB::table('atributos')
-                            ->whereIn('id', $atributosIds)
-                            ->pluck('nombre', 'id')
-                            ->toArray();
-                            @endphp
+                        // Obtener los nombres de los atributos desde la base de datos
+                        $atributosNombres = \DB::table('atributos')
+                        ->whereIn('id', $atributosIds)
+                        ->pluck('nombre', 'id')
+                        ->toArray();
+                        @endphp
 
-                            @foreach($atributosIds as $atributoId)
-                            @if(isset($atributosNombres[$atributoId]))
-                            <span class="escortperfil-attribute-item">{{ $atributosNombres[$atributoId] }}</span>
-                            @endif
-                            @endforeach
-                        </div>
+                        @foreach($atributosIds as $atributoId)
+                        @if(isset($atributosNombres[$atributoId]))
+                        <span class="escortperfil-attribute-item">{{ $atributosNombres[$atributoId] }}</span>
+                        @endif
+                        @endforeach
                     </div>
-
-                    <div class="escortperfil-section">
+                </div>
+                    {{-- <div class="escortperfil-section">
                         <h2 class="escortperfil-section-title">Datos de ubicación</h2>
                         <div class="escortperfil-description">
                             <h3 class="escortperfil-subtitle">Ubicaciones donde atiendo</h3>
@@ -362,136 +300,203 @@
                             <p class="text-center">No hay servicios disponibles</p>
                             @endif
                         </div>
+                    </div> --}}
+                <div class="escortperfil-section">
+                    <div class="escortperfil-actions">
+                        <a href="https://api.whatsapp.com/send?phone={{ $usuarioPublicate->telefono }}&text=Hola%20{{ $usuarioPublicate->fantasia }}!%20Vi%20tu%20anuncio%20en%20OnlyEscorts%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20tus%20servicios.%20%C2%BFC%C3%B3mo%20est%C3%A1s?" class="escortperfil-btn disponible" target="_blank">
+                            <i class="fab fa-whatsapp"></i>&nbsp;WHATSAPP
+                        </a>
+                        <button class="escortperfil-btn contactar">CONTACTAR</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Sección de Servicios -->
-            <div class="escortperfil-section">
-                <h2 class="escortperfil-section-title">Servicios</h2>
-                <div class="escortperfil-services-list">
-                    @php
-                    // Decodificar los servicios del usuario
-                    $serviciosIds = json_decode($usuarioPublicate->servicios, true);
-                    $serviciosIds = is_array($serviciosIds) ? $serviciosIds : [];
+                <!-- Sección de Servicios -->
+            <div class="escortperfil-content">
+                <div class="escortperfil-section">
+                    <h2 class="escortperfil-section-title">Servicios</h2>
+                    <div class="escortperfil-services-list">
+                        @php
+                        // Decodificar los servicios del usuario
+                        $serviciosIds = json_decode($usuarioPublicate->servicios, true);
+                        $serviciosIds = is_array($serviciosIds) ? $serviciosIds : [];
 
-                    // Obtener los nombres de los servicios desde la base de datos
-                    $serviciosNombres = DB::table('servicios')
-                    ->whereIn('id', $serviciosIds)
-                    ->pluck('nombre', 'id')
-                    ->toArray();
-                    @endphp
+                        // Obtener los nombres de los servicios desde la base de datos
+                        $serviciosNombres = DB::table('servicios')
+                        ->whereIn('id', $serviciosIds)
+                        ->pluck('nombre', 'id')
+                        ->toArray();
+                        @endphp
 
-                    @foreach($serviciosIds as $servicioId)
-                    @if(isset($serviciosNombres[$servicioId]))
-                    <span class="escortperfil-service-item">{{ $serviciosNombres[$servicioId] }}</span>
-                    @endif
-                    @endforeach
+                        @foreach($serviciosIds as $servicioId)
+                        @if(isset($serviciosNombres[$servicioId]))
+                        <span class="escortperfil-service-item">{{ $serviciosNombres[$servicioId] }}</span>
+                        @endif
+                        @endforeach
+                    </div>
                 </div>
-            </div>
 
-            <!-- Sección de Servicios Adicionales -->
-            <div class="escortperfil-section">
-                <h2 class="escortperfil-section-title">Servicios Adicionales</h2>
-                <div class="escortperfil-services-list">
-                    @php
-                    // Decodificar los servicios adicionales del usuario
-                    $serviciosAdicionalesIds = json_decode($usuarioPublicate->servicios_adicionales, true);
-                    $serviciosAdicionalesIds = is_array($serviciosAdicionalesIds) ? $serviciosAdicionalesIds : [];
+                <!-- Sección de Servicios Adicionales -->
+                <div class="escortperfil-section">
+                    <h2 class="escortperfil-section-title">Servicios Adicionales</h2>
+                    <div class="escortperfil-services-list">
+                        @php
+                        // Decodificar los servicios adicionales del usuario
+                        $serviciosAdicionalesIds = json_decode($usuarioPublicate->servicios_adicionales, true);
+                        $serviciosAdicionalesIds = is_array($serviciosAdicionalesIds) ? $serviciosAdicionalesIds : [];
 
-                    // Obtener los nombres de los servicios adicionales desde la tabla de servicios
-                    $serviciosAdicionalesNombres = \DB::table('servicios')
-                    ->whereIn('id', $serviciosAdicionalesIds)
-                    ->pluck('nombre', 'id')
-                    ->toArray();
-                    @endphp
+                        // Obtener los nombres de los servicios adicionales desde la tabla de servicios
+                        $serviciosAdicionalesNombres = \DB::table('servicios')
+                        ->whereIn('id', $serviciosAdicionalesIds)
+                        ->pluck('nombre', 'id')
+                        ->toArray();
+                        @endphp
 
-                    @foreach($serviciosAdicionalesIds as $servicioAdicionalId)
-                    @if(isset($serviciosAdicionalesNombres[$servicioAdicionalId]))
-                    <span class="escortperfil-service-item">{{ $serviciosAdicionalesNombres[$servicioAdicionalId] }}</span>
-                    @endif
-                    @endforeach
+                        @foreach($serviciosAdicionalesIds as $servicioAdicionalId)
+                        @if(isset($serviciosAdicionalesNombres[$servicioAdicionalId]))
+                        <span class="escortperfil-service-item">{{ $serviciosAdicionalesNombres[$servicioAdicionalId] }}</span>
+                        @endif
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-
-            <div class="escortperfil-section">
-                <h2 class="escortperfil-section-title">Videos</h2>
-                @if(!empty($videos = json_decode($usuarioPublicate->videos)))
-                    <div class="escortperfil-videos-container">
-                        <button class="swiper-button-prev">&#10094;</button> <!-- Flecha izquierda -->
-                        <div class="escortperfil-videos-list">
-                            <div class="escortperfil-video-item">
-                                <video class="escortperfil-video" preload="auto" controls playsinline muted src="{{ asset('storage/chicas/'.$usuarioPublicate->id.'/videos/'.($videos[0] ?? '')) }}">
-                                    Tu navegador no soporta el elemento de video.
-                                </video>
-                            </div>
+                <div class="escortperfil-section">
+                    <aside class="escortperfil-schedule d-none d-lg-block">
+                        <h2 class="escortperfil-section-title">Horario</h2>
+                        <div class="escortperfil-schedule-list">
+                            @php
+                                $dias = [
+                                    'Lunes' => 'LUN',
+                                    'Martes' => 'MAR',
+                                    'Miércoles' => 'MIE',
+                                    'Jueves' => 'JUE',
+                                    'Viernes' => 'VIE',
+                                    'Sábado' => 'SAB',
+                                    'Domingo' => 'DOM'
+                                ];
+        
+                                $disponibilidad = \App\Models\Disponibilidad::where('publicate_id', $usuarioPublicate->id)
+                                    ->where('estado', 'activo')
+                                    ->get();
+        
+                                $disponibilidadMap = [];
+        
+                                foreach($disponibilidad as $disp) {
+                                    $horarioDesde = \Carbon\Carbon::parse($disp->hora_desde)->format('H:i');
+                                    $horarioHasta = \Carbon\Carbon::parse($disp->hora_hasta)->format('H:i');
+        
+                                    $disponibilidadMap[$disp->dia] = [
+                                        'hora_desde' => $horarioDesde,
+                                        'hora_hasta' => $horarioHasta,
+                                        'is_full_time' => ($horarioDesde === '00:00' && $horarioHasta === '23:59')
+                                    ];
+                                }
+                            @endphp
+        
+                            @foreach($dias as $diaCompleto => $diaAbrev)
+                                <div class="escortperfil-schedule-item {{ strtolower($diaCompleto) == strtolower(\Carbon\Carbon::now()->locale('es')->dayName) ? 'current-day' : '' }}">
+                                    <span class="day-badge">{{ $diaAbrev }}</span>
+                                    <span class="schedule-time">
+                                        @if(isset($disponibilidadMap[$diaCompleto]))
+                                        @if($disponibilidadMap[$diaCompleto]['is_full_time'])
+                                        Full Time
+                                        @else
+                                        {{ $disponibilidadMap[$diaCompleto]['hora_desde'] }} - {{ $disponibilidadMap[$diaCompleto]['hora_hasta'] }} hs
+                                        @endif
+                                        @else
+                                        No disponible
+                                        @endif
+                                    </span>
+                                </div>
+                            @endforeach
                         </div>
-                        <button class="swiper-button-next">&#10095;</button> <!-- Flecha derecha -->
-                    </div>
-                    <div class="swiper-pagination">
-                        @if(count($videos) > 1)
-                            @foreach($videos as $index => $video)
-                                <span class="swiper-pagination-bullet {{ $index === 0 ? 'swiper-pagination-bullet-active' : '' }}"
-                                    data-video="{{ asset('storage/chicas/' . $usuarioPublicate->id . '/videos/' . $video) }}">
-                                </span>
-                            @endforeach
-                        @endif                        
-                    </div>
-                @else
-                    <p class="text-center">No hay videos disponibles</p>
-                @endif
+        
+                        <div class="escortperfil-map-section">
+                            <h2 class="escortperfil-section-title">Ubicación</h2>
+                            <div id="escort-map" class="escort-map"></div>
+                        </div>
+        
+                    </aside>
+                </div>    
             </div>
-
-            <!-- Sección de Experiencias -->
-            <div class="escortperfil-section">
-                <h2 class="escortperfil-section-title">Experiencias</h2>
-                @php
-                $experiencias = \App\Models\Posts::where('id_blog', 16)
-                ->where('chica_id', $usuarioPublicate->id)
-                ->orderBy('created_at', 'desc')
-                ->get();
-                @endphp
-
-                @if($experiencias->count() > 0)
-                <div class="escortperfil-experiences-table">
-                    <table>
-                        <tbody>
-                            @foreach($experiencias as $experiencia)
-                            <tr class="escortperfil-experience-row">
-                                <td class="escortperfil-experience-avatar-cell">
-                                    @if($experiencia->usuario && $experiencia->usuario->foto)
-                                    <img src="{{ asset('storage/' . $experiencia->usuario->foto) }}"
-                                        alt="Avatar de {{ $experiencia->usuario->name }}"
-                                        class="escortperfil-experience-avatar-img">
-                                    @else
-                                    <div class="escortperfil-experience-avatar-default">
-                                        {{ $experiencia->usuario ? strtoupper(substr($experiencia->usuario->name, 0, 1)) : 'A' }}
-                                    </div>
-                                    @endif
-                                </td>
-                                <td class="escortperfil-experience-content-cell">
-                                    <div class="escortperfil-experience-author">
-                                        {{ $experiencia->usuario->name ?? 'Anónimo' }}
-                                    </div>
-                                    <a href="{{ route('post.show', ['id_blog' => $experiencia->id_blog, 'id' => $experiencia->id]) }}"
-                                        class="escortperfil-experience-title-link">
-                                        <h3 class="escortperfil-experience-title">{{ $experiencia->titulo }}</h3>
-                                    </a>
-                                    <p class="escortperfil-experience-content">{{ $experiencia->contenido }}</p>
-                                </td>
-                                <td class="escortperfil-experience-date-cell">
-                                    {{ \Carbon\Carbon::parse($experiencia->created_at)->format('d/m/Y') }}
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+            <div class="escortperfil-content">
+                <div class="escortperfil-section">
+                    <h2 class="escortperfil-section-title">Videos</h2>
+                    @if(!empty($videos = json_decode($usuarioPublicate->videos)))
+                        <div class="escortperfil-videos-container">
+                            <button class="swiper-button-prev">&#10094;</button> <!-- Flecha izquierda -->
+                            <div class="escortperfil-videos-list">
+                                <div class="escortperfil-video-item">
+                                    <video class="escortperfil-video" preload="auto" controls playsinline muted src="{{ asset('storage/chicas/'.$usuarioPublicate->id.'/videos/'.($videos[0] ?? '')) }}">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                </div>
+                            </div>
+                            <button class="swiper-button-next">&#10095;</button> <!-- Flecha derecha -->
+                        </div>
+                        <div class="swiper-pagination">
+                            @if(count($videos) > 1)
+                                @foreach($videos as $index => $video)
+                                    <span class="swiper-pagination-bullet {{ $index === 0 ? 'swiper-pagination-bullet-active' : '' }}"
+                                        data-video="{{ asset('storage/chicas/' . $usuarioPublicate->id . '/videos/' . $video) }}">
+                                    </span>
+                                @endforeach
+                            @endif                        
+                        </div>
+                    @else
+                        <p class="text-center">No hay videos disponibles</p>
+                    @endif
                 </div>
-                @else
-                <p class="text-center">No hay experiencias disponibles</p>
-                @endif
-            </div>
 
+                <!-- Sección de Experiencias -->
+                <div class="escortperfil-section">
+                    <h2 class="escortperfil-section-title">Experiencias</h2>
+                    @php
+                    $experiencias = \App\Models\Posts::where('id_blog', 16)
+                    ->where('chica_id', $usuarioPublicate->id)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+                    @endphp
+
+                    @if($experiencias->count() > 0)
+                    <div class="escortperfil-experiences-table">
+                        <table>
+                            <tbody>
+                                @foreach($experiencias as $experiencia)
+                                <tr class="escortperfil-experience-row">
+                                    <td class="escortperfil-experience-avatar-cell">
+                                        @if($experiencia->usuario && $experiencia->usuario->foto)
+                                        <img src="{{ asset('storage/' . $experiencia->usuario->foto) }}"
+                                            alt="Avatar de {{ $experiencia->usuario->name }}"
+                                            class="escortperfil-experience-avatar-img">
+                                        @else
+                                        <div class="escortperfil-experience-avatar-default">
+                                            {{ $experiencia->usuario ? strtoupper(substr($experiencia->usuario->name, 0, 1)) : 'A' }}
+                                        </div>
+                                        @endif
+                                    </td>
+                                    <td class="escortperfil-experience-content-cell">
+                                        <div class="escortperfil-experience-author">
+                                            {{ $experiencia->usuario->name ?? 'Anónimo' }}
+                                        </div>
+                                        <a href="{{ route('post.show', ['id_blog' => $experiencia->id_blog, 'id' => $experiencia->id]) }}"
+                                            class="escortperfil-experience-title-link">
+                                            <h3 class="escortperfil-experience-title">{{ $experiencia->titulo }}</h3>
+                                        </a>
+                                        <p class="escortperfil-experience-content">{{ $experiencia->contenido }}</p>
+                                    </td>
+                                    <td class="escortperfil-experience-date-cell">
+                                        {{ \Carbon\Carbon::parse($experiencia->created_at)->format('d/m/Y') }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    @else
+                    <p class="text-center">No hay experiencias disponibles</p>
+                    @endif
+                </div>
+            </div>
             <div class="escortperfil-schedule mobile d-block d-lg-none">
                 <h2 class="escortperfil-section-title">Horario</h2>
                 <div class="escortperfil-schedule-list">

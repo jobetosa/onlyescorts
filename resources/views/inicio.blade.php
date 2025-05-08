@@ -3,7 +3,7 @@
 @section('content')
 
     <header class="banner">
-        <img src="{{ isset($meta->fondo) ? Storage::url($meta->fondo) : asset('images/banner1.jpg') }}" alt="Banner Image" class="banner-img">
+        <img src="/images/banner1.jpg" alt="Banner Image" class="banner-img">
         <div class="banner-content">
             <div class="texto_banner">
                 <div class="heading-container">
@@ -18,7 +18,7 @@
         </div>
         <div class="gradient"></div>
     </header>
-
+    
     <!-- Sección de Historias -->
     <section class="estados-historias">
         <div class="container">
@@ -100,9 +100,9 @@
         </div>
     </div>
 
-    <main class="inicio-container">
-        <div class="main-content-wrapper">
-            <section class="inicio-usuarios-section">
+    <main class="container-fluid px-5">
+        <div class="row">
+            <section class="inicio-usuarios-section col-md-10">
                 <div class="inicio-card-wrapper w-100">
                     @include('components.breadcrumb')
 
@@ -494,8 +494,10 @@
                         @endif
                     </div>
                 </div>
-
-                @if($usuarioDestacado)
+            </section>            
+            {{-- aquiii --}}  
+            
+            @if($usuarioDestacado)
                     @php
                         $fotosDestacado = json_decode($usuarioDestacado->fotos, true);
                         $positionsDestacado = json_decode($usuarioDestacado->foto_positions, true) ?? [];
@@ -534,47 +536,48 @@
                         
                     @endphp
                     
-                    <a href="{{ route('perfil.show', ['nombre' => strtolower(eliminar_acentos(($usuarioDestacado->fantasia))) . '-' . $usuarioDestacado->id]) }}" class="inicio-featured-card">
-                        <div class="inicio-featured-label">CHICA DEL MES</div>
-                        <div class="inicio-featured-image"
-                            style="background-image: url('{{ $primeraFotoDestacado ? asset("storage/chicas/{$usuarioDestacado->id}/{$primeraFotoDestacado}") : asset("images/default-avatar.png") }}');
-                    background-position: {{ $posicionFotoDestacado }} center;">
-                        <img src="{{ $primeraFotoDestacado ? asset("storage/chicas/{$usuarioDestacado->id}/{$primeraFotoDestacado}") : asset("images/default-avatar.png") }}"
-                        alt="{{ isset($descripcionFotoDestacado) ? $descripcionFotoDestacado : 'Foto de escort' }}" loading="lazy"
-                            style="visibility: hidden; height: 0;">
-                                
-                            <div class="inicio-featured-overlay">
-                                <div class="box-inicio-featured">
-                                    <h3 class="inicio-featured-title">
-                                        {{ $usuarioDestacado->fantasia }}
-                                        @if($mostrarPuntoVerdeDestacado)
-                                            <span class="online-dot"></span>
-                                        @endif                            
-                                    </h3>
-                                    <span class="inicio-featured-age">{{ $usuarioDestacado->edad }}</span>
-                                </div>
-                                <div class="location-price">
-                                    <span class="inicio-featured-location">
-                                        <img src="{{ asset('images/location.svg') }}" alt="location-icon" class="location-icon2" loading="lazy" aria-hidden="true"></i>
-                                        @if($ciudadSeleccionada->url === 'santiago')
-                                        @if($usuarioDestacado->sector)
-                                        {{ $usuarioDestacado->sector->nombre }}
-                                        @else
-                                        {{ $ubicacionesMostradas[$usuarioDestacado->id] ?? 'Sector no disponible' }}
-                                        @endif
-                                        @else
-                                        {{ $usuarioDestacado->ubicacion }}
-                                        @endif
-                                    </span>
-                                    <span class="inicio-featured-price">
-                                        {{ $usuarioDestacado->precio ? '$' . number_format($usuarioDestacado->precio, 0, ',', '.') : 'Consultar' }}
-                                    </span>
+                    <div class="col-md-2">
+                        <a href="{{ route('perfil.show', ['nombre' => strtolower(eliminar_acentos(($usuarioDestacado->fantasia))) . '-' . $usuarioDestacado->id]) }}" class="inicio-featured-card">
+                            <div class="inicio-featured-label">CHICA DEL MES</div>
+                            <div class="inicio-featured-image"
+                                style="background-image: url('{{ $primeraFotoDestacado ? asset("storage/chicas/{$usuarioDestacado->id}/{$primeraFotoDestacado}") : asset("images/default-avatar.png") }}');
+                        background-position: {{ $posicionFotoDestacado }} center;">
+                            <img src="{{ $primeraFotoDestacado ? asset("storage/chicas/{$usuarioDestacado->id}/{$primeraFotoDestacado}") : asset("images/default-avatar.png") }}"
+                            alt="{{ isset($descripcionFotoDestacado) ? $descripcionFotoDestacado : 'Foto de escort' }}" loading="lazy"
+                                style="visibility: hidden; height: 0;">
+                                    
+                                <div class="inicio-featured-overlay">
+                                    <div class="box-inicio-featured">
+                                        <h3 class="inicio-featured-title">
+                                            {{ $usuarioDestacado->fantasia }}
+                                            @if($mostrarPuntoVerdeDestacado)
+                                                <span class="online-dot"></span>
+                                            @endif                            
+                                        </h3>
+                                        <span class="inicio-featured-age">{{ $usuarioDestacado->edad }}</span>
+                                    </div>
+                                    <div class="location-price">
+                                        <span class="inicio-featured-location">
+                                            <img src="{{ asset('images/location.svg') }}" alt="location-icon" class="location-icon2" loading="lazy" aria-hidden="true"></i>
+                                            @if($ciudadSeleccionada->url === 'santiago')
+                                            @if($usuarioDestacado->sector)
+                                            {{ $usuarioDestacado->sector->nombre }}
+                                            @else
+                                            {{ $ubicacionesMostradas[$usuarioDestacado->id] ?? 'Sector no disponible' }}
+                                            @endif
+                                            @else
+                                            {{ $usuarioDestacado->ubicacion }}
+                                            @endif
+                                        </span>
+                                        <span class="inicio-featured-price">
+                                            {{ $usuarioDestacado->precio ? '$' . number_format($usuarioDestacado->precio, 0, ',', '.') : 'Consultar' }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 @endif
-                
                 <aside class="online-panel">
                     <h2 class="online-panel-title">Chicas online</h2>
                     <div class="online-count">
@@ -611,9 +614,8 @@
                             @endforeach
                         </ul>
                     </div>
-                </aside>
-            </section>            
-                
+                </aside>    
+                    
             @if(!$usuarios->isEmpty())
                 <div class="pagination-container">
                     {{ $usuarios->links('layouts.pagination') }}
@@ -629,7 +631,7 @@
                     <div class="category-header">
                         <h2>Escorts de Regreso</h2>
                     </div>
-                    <div class="swiper-wrapper" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                    <div class="swiper-wrapper1" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
                         @foreach($volvieron as $usuario)
                         @php
                         $now = now();
@@ -732,7 +734,7 @@
                     <div class="category-header">
                         <h2>Escorts Nuevas</h2>
                     </div>
-                    <div class="swiper-wrapper" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                    <div class="swiper-wrapper1" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
                         @foreach($primeraVez as $usuario)
                         @php
                         $now = now();

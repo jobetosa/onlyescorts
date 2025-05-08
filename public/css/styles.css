@@ -88,7 +88,7 @@ i.far.fa-share-square{
     background: #e00037;
 }
 .carousel-container {
-    max-width: 81%; /* Ajusta el ancho */
+    max-width: 92%; /* Ajusta el ancho */
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -195,7 +195,7 @@ i.far.fa-share-square{
     position: relative;
     margin-top: -112px;
     width: 206px;
-    /* margin-right: -24px; */
+    margin-right: 150px;
 }
 .share-button-n {
     padding: 12px 20px;
@@ -652,10 +652,10 @@ label .required {
 /* Estilos para la barra de navegaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n superior negra */
 .navbar-top {
     background-color: #1a1a1a;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px 20px;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* padding: 5px 70px; */
     color: #fff;
     margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
@@ -663,13 +663,13 @@ label .required {
 
 @media screen and (min-width: 1280px) {
     .navbar-top {
-        padding: 5px 0;
+        /* padding: 5px 0; */
     }    
 }
 
 @media screen and (min-width: 1420px) {
     .navbar-top {
-        padding: 5px 200px;
+        /* padding: 5px 200px; */
     }   
 }
 
@@ -762,6 +762,7 @@ label .required {
     align-items: center;
     z-index: 12;
     opacity: .95;
+    /* margin-left: 20px; */
 }
 
 
@@ -782,25 +783,25 @@ label .required {
 /* Barra de navegaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n inferior */
 .navbar-bottom {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-color: #fff;
     color: #333;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     font-family: 'Montserrat', sans-serif;
     font-size: .875rem;
     font-weight: normal;
     color: #000;
-    height: 3rem;
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    --tw-shadow: 0 0 4px rgba(0, 0, 0, .4);
+    height: 2.5rem;
+    /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
+    /* --tw-shadow: 0 0 4px rgba(0, 0, 0, .4); */
 }
 
 /* BotÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n de Filtros */
 .btn-filters {
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 5px 150px;
+    padding: 5px 125px;
     border-radius: 5px;
     font-size: 14px;
     display: flex;
@@ -1508,6 +1509,14 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     margin: auto;
     padding: 20px;
 }
+/* Contenedor principal */
+.inicio-container2 {
+    max-width: 1440px;
+    margin: auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 12px;
+}
 
 /* SecciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n de tarjetas */
 .inicio-usuarios-section {
@@ -1951,14 +1960,14 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 }
 
 .escortperfil-container {
-    max-width: 1200px;
+    max-width: 1400px;
     /*height: 1664px;*/
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
 
 .escortperfil-breadcrumb {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 12px 0px;
     color: #9a9fa8;
@@ -2121,7 +2130,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     display: flex;
     align-items: center;
     height: 65px;
-    width: 643px;
+    width: 814px;
     /* Cambiamos space-between por un gap pequeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±o */
     justify-content: flex-start;
     gap: 32px;
@@ -2171,7 +2180,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     flex-direction: column;
     gap: 10px;
     position: absolute;
-    right: 342px;
+    right: 28px;
     top: 730px;
     /* Ajusta segÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºn necesites */
     z-index: 3;
@@ -2792,7 +2801,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 /* Contenedor del horario */
 .escortperfil-schedule {
     position: absolute;
-    right: 308px;
+    right: 7px;
     top: 800px;
     background-color: #fff;
     padding: 25px;
@@ -4633,6 +4642,22 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* Large screens (1280px y menor) */
 @media screen and (max-width: 1280px) {
+    .sections-container {
+        grid-template-columns: none !important;
+    }
+    .swiper-wrapper1 {
+        text-align: center;
+        display: block !important;
+    }
+    .col-md-5.offset-md-3.px-5 {
+        margin-left: 18%;
+    }
+    .btn-filters {
+        padding: 0px;
+    }
+    .inicio-container2 {
+        padding-left: 0px; 
+    }
     .inicio-card {
         height: 398px;
         /*width: 254px;*/
@@ -4697,6 +4722,15 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* Tablets y pantallas medianas (768px y menor) */
 @media screen and (max-width: 768px) {
+    main {
+        padding-top: 0px !important;
+    }
+    .col-md-5.offset-md-3.px-5 {
+        margin-left: 0px; 
+    }
+    .col-md-2 {
+        display: none;
+    }
     .UEInicio {
         padding: 0.75rem;
     }
@@ -5565,6 +5599,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³viles (480px y menor) */
 @media screen and (max-width: 480px) {
+    .navbar-bottom {
+        justify-content: center;
+    }
     .gradient {
         bottom: 16px;
     }
@@ -11300,6 +11337,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* Large screens (1280px y menor) */
         @media screen and (max-width: 1280px) {
+    
     .inicio-card {
         height: 398px;
         /*width: 254px;*/
@@ -13836,15 +13874,21 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         padding: 15px 0;
     }
 }
-        @media screen and (min-width: 1635px) {
-    .inicio-card {
-        min-width: 300px;
-        max-width: 300px;
+    @media screen and (min-width: 2013px) {
+        .carousel-container {
+            max-width: 87% !important;
+        }
     }
-    .carousel-container {
-        max-width: 87%;
+
+    @media screen and (min-width: 1635px) {
+        .inicio-card {
+            min-width: 300px;
+            max-width: 300px;
+        }
+        .carousel-container {
+            max-width: 91.3%;
+        }
     }
-}
         @media screen and (min-width: 1440px) and (max-width: 1920px) {
 
     /*.card {
@@ -14679,7 +14723,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         max-width: 300px;
     }
     .carousel-container {
-        max-width: 87%;
+        max-width: 91.3%;
     }
 }
 
@@ -14705,11 +14749,12 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         border-radius: 4px;
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
-        /* position: absolute; */
+        /* position: relative; */
         margin-top: 20px;
-        right: 50px;
+        right: 68px;
         z-index: 10;
         /* margin-bottom: 40px; */
+        display: inline-block;
     }
 
     .inicio-featured-card {
@@ -14720,11 +14765,13 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         background-color: #000;
         height: 325px;
-        position: absolute;
-        right: 50px;
+        position: relative;
+        right: -60px;
         font-family: 'Montserrat', sans-serif;
         z-index: 10;
         text-decoration: none;
+        display: inline-block;
+        top: 20px;
     }
 
     .volvieronyprimera-card {
