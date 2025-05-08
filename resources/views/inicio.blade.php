@@ -631,7 +631,7 @@
                     <div class="category-header">
                         <h2>Escorts de Regreso</h2>
                     </div>
-                    <div class="swiper-wrapper" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                    <div class="swiper-wrapper swiper-wrapper1" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
                         @foreach($volvieron as $usuario)
                         @php
                         $now = now();
@@ -734,7 +734,7 @@
                     <div class="category-header">
                         <h2>Escorts Nuevas</h2>
                     </div>
-                    <div class="swiper-wrapper" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                    <div class="swiper-wrapper swiper-wrapper1" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
                         @foreach($primeraVez as $usuario)
                         @php
                         $now = now();
