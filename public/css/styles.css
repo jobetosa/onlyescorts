@@ -1818,8 +1818,8 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     border-radius: 4px;
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
-    position: absolute;
-    top: 824px;
+    /* position: absolute; */
+    /* top: 824px; */
     right: 242px;
     z-index: 10;
 }
@@ -4671,8 +4671,11 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
     .online-panel {
         width: 200px;
-        top: 838px;
+        /* top: 838px; */
         right: 0px;
+        position: relative;
+        display: inline-block;
+        margin-top: 336px;
     }
 
     .inicio-container {
@@ -14585,10 +14588,12 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         border-radius: 4px;
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
-        position: absolute;
-        top: 824px;
-        right: -6px;
+        position: relative;
+        /* top: 824px; */
+        right: -30px;
         z-index: 10;
+        display: inline-block;
+        margin-top: 380px;
     }
 
     /*.escortperfil-nombre {
@@ -14635,10 +14640,12 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         border-radius: 4px;
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
-        position: absolute;
-        top: 824px;
-        right: 10px;
+        position: relative;
+        /* top: 380px; */
+        right: -17px;
         z-index: 10;
+        display: inline-block;
+        margin-top: 330px;
     }
 
     .escortperfil-nombre {
@@ -14697,10 +14704,11 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         border-radius: 4px;
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
-        position: absolute;
-        top: 860px;
-        right: 35px;
+        position: relative;
+        margin-top: 20px;
+        right: -10px;
         z-index: 10;
+        margin-top: 379px;
     }
 
     .escortperfil-nombre {
@@ -14756,9 +14764,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         border-radius: 4px;
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
-        /* position: relative; */
+        position: relative;
         margin-top: 20px;
-        right: 68px;
+        right: 5px;
         z-index: 10;
         /* margin-bottom: 40px; */
         display: inline-block;

@@ -576,45 +576,46 @@
                                 </div>
                             </div>
                         </a>
+                        <aside class="online-panel">
+                            <h2 class="online-panel-title">Chicas online</h2>
+                            <div class="online-count">
+                                {{ $totalOnline }} Disponibles
+                            </div>
+                            <div class="online-container">
+                                <ul class="online-list">
+                                     
+                                    @foreach($usuariosOnline as $usuario)
+                                    @php
+                                        $fotos = json_decode($usuario->fotos, true);
+                                        $positions = json_decode($usuario->foto_positions, true) ?? [];
+                                        $primeraFoto = is_array($fotos) && !empty($fotos) ? $fotos[0] : null;
+                                        $posicionFoto = in_array(($positions[$primeraFoto] ?? ''), ['left', 'right', 'center']) ? $positions[$primeraFoto] : 'center';
+                                    
+                                        
+                                    @endphp
+                                    
+                                    <li class="online-item-enlaces">
+                                        <img src="{{ $primeraFoto ? asset('storage/chicas/' . $usuario->id . '/' . $primeraFoto) : asset('images/default-avatar.png') }}"
+                                            alt="{{ $usuario->fantasia }}"
+                                            class="online-image"
+                                            style="object-position: {{ $posicionFoto }} center;"
+                                            loading="lazy">
+                                        <div class="online-info">
+                                            <div class="online-name">
+                                                {{ $usuario->fantasia }}
+                                                <span class="online-age">{{ $usuario->edad }}</span>
+                                            </div>
+                                            <div class="online-status">ONLINE</div>
+                                            <a href="{{ route('perfil.show', ['nombre' => strtolower(eliminar_acentos($usuario->fantasia)). '-' . $usuario->id]) }}" class="online-profile-button">Ver perfil</a>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </aside>     
                     </div>
                 @endif
-                <aside class="online-panel">
-                    <h2 class="online-panel-title">Chicas online</h2>
-                    <div class="online-count">
-                        {{ $totalOnline }} Disponibles
-                    </div>
-                    <div class="online-container">
-                        <ul class="online-list">
-                             
-                            @foreach($usuariosOnline as $usuario)
-                            @php
-                                $fotos = json_decode($usuario->fotos, true);
-                                $positions = json_decode($usuario->foto_positions, true) ?? [];
-                                $primeraFoto = is_array($fotos) && !empty($fotos) ? $fotos[0] : null;
-                                $posicionFoto = in_array(($positions[$primeraFoto] ?? ''), ['left', 'right', 'center']) ? $positions[$primeraFoto] : 'center';
-                            
-                                
-                            @endphp
-                            
-                            <li class="online-item-enlaces">
-                                <img src="{{ $primeraFoto ? asset('storage/chicas/' . $usuario->id . '/' . $primeraFoto) : asset('images/default-avatar.png') }}"
-                                    alt="{{ $usuario->fantasia }}"
-                                    class="online-image"
-                                    style="object-position: {{ $posicionFoto }} center;"
-                                    loading="lazy">
-                                <div class="online-info">
-                                    <div class="online-name">
-                                        {{ $usuario->fantasia }}
-                                        <span class="online-age">{{ $usuario->edad }}</span>
-                                    </div>
-                                    <div class="online-status">ONLINE</div>
-                                    <a href="{{ route('perfil.show', ['nombre' => strtolower(eliminar_acentos($usuario->fantasia)). '-' . $usuario->id]) }}" class="online-profile-button">Ver perfil</a>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </aside>    
+                   
                     
             @if(!$usuarios->isEmpty())
                 <div class="pagination-container">
