@@ -627,7 +627,7 @@
         <div class="sections-container">
             <!-- Volvieron Section -->
             <section class="volvieronyprimera-section">
-                <div class="swiper-container2">
+                <div class="swiper-container">
                     <div class="category-header">
                         <h2>Escorts de Regreso</h2>
                     </div>
@@ -730,7 +730,7 @@
 
             <!-- Primera vez Section -->
             <section class="volvieronyprimera-section">
-                <div class="swiper-container2">
+                <div class="swiper-container">
                     <div class="category-header">
                         <h2>Escorts Nuevas</h2>
                     </div>
