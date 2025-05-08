@@ -5608,7 +5608,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         text-align: center;
         display: flex !important;
     }
-    main.container-fluid.px-5 {
+    main.inicio-container2.px-3 {
         padding: 0px !important;
     }
     .navbar-bottom {
