@@ -239,85 +239,88 @@ main {
 <div class="wrapper">
 
     <header>
-        <nav class="navbar navbar-top">
-            <div class="navbar-left">
-                <button class="btn-publish">PUBLICATE</button>
-            </div>
-
-            <div class="navbar-right">
-            <div class="location-dropdown">
-                <img src="{{ asset('images/location.svg') }}" alt="location-icon" class="location-icon">
-                <select name="location" id="location">
-                    <option value="" disabled>Seleccionar ciudad</option>
-                    @foreach($ciudades as $ciudad)
-                        <option value="{{ strtolower($ciudad->url) }}" 
-                            {{ session('ciudad_actual') == $ciudad->nombre ? 'selected' : '' }}>
-                            {{ ucfirst($ciudad->nombre) }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-
-                @if(Auth::check())
-                @if(Auth::user()->rol === '1')
-                <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
-                @elseif(Auth::user()->rol === '2')
-                <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
-                @else
-                <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
-                @endif
-                <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                    @csrf
-                    <button class="btn-logout">SALIR</button>
-                </form>
-                @else
-                <a href="{{ route('login') }}" class="btn-login">ACCEDER</a>
-                <a href="{{ route('register') }}" class="btn-register">REGISTRARSE</a>
-                @endif
-            </div>
-        </nav>
-        <div class="navbar-bottom">
-            <div class="navbar-left">
-                <a href="/" class="logo">
-                    <img src="{{ asset('images/logo_v2.png') }}" alt="Logo" class="logo1">
-                </a>
-
-
-                <button class="btn-filters">
-                    <img src="{{ asset('images/filtro.svg') }}" alt="Filtros" class="icon-filter"> Filtro Avanzado
-                </button>
-            </div>
-
-            <div class="navbar-right">
-                <a href="{{ route('home') }}" class="nav-link">INICIO</a>
-                <div class="dropdown">
-                    <button class="dropdown-button nav-link">CIUDADES</button>
-                    <div class="dropdown-content">
-                        @php
-                            $ciudadesPorZona = $ciudades->groupBy('zona');
-                            $ordenZonas = ['Zona Norte', 'Zona Centro', 'Zona Sur'];
-                        @endphp
-
-                        @foreach($ordenZonas as $zona)
-                            @if(isset($ciudadesPorZona[$zona]))
-                                <div class="dropdown-column">
-                                    <h3>{{ $zona }}</h3>
-                                    @foreach($ciudadesPorZona[$zona] as $ciudad)
-                                        <a href="/escorts-{{ $ciudad->url }}"
-                                            class="ciudad-link text-uppercase">
-                                            {{ $ciudad->nombre }}
-                                        </a>
-                                    @endforeach
-                                </div>
-                            @endif
-                        @endforeach
+        <div class="navbar-top">
+            <div class="inicio-container2">
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn-publish">PUBLICATE</button>
                     </div>
-                </div>
+                    <div class="col-md-5 offset-md-3 px-5">
+                        <div class="navbar-right">
+                            <div class="location-dropdown">
+                                <img src="{{ asset('images/location.svg') }}" alt="location-icon" class="location-icon">
+                                <select name="location" id="location">
+                                    <option value="" disabled>Seleccionar ciudad</option>
+                                    @foreach($ciudades as $ciudad)
+                                        <option value="{{ strtolower($ciudad->url) }}" 
+                                            {{ session('ciudad_actual') == $ciudad->nombre ? 'selected' : '' }}>
+                                            {{ ucfirst($ciudad->nombre) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                <a href="{{ route('favoritos.show') }}" class="nav-link">FAVORITOS</a>
-                <a href="{{ route('blog') }}" class="nav-link">BLOG</a>
-                <a href="{{ route('foro') }}" class="nav-link">FORO ESCORTS </a>
+                            @if(Auth::check())
+                                @if(Auth::user()->rol === '1')
+                                    <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
+                                @elseif(Auth::user()->rol === '2')
+                                    <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
+                                @else
+                                    <a href="{{ route('admin.profile') }}" class="btn-user">{{ Auth::user()->name }}</a>
+                                @endif
+                                <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                                    @csrf
+                                    <button class="btn-logout">SALIR</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn-login">ACCEDER</a>
+                                <a href="{{ route('register') }}" class="btn-register">REGISTRARSE</a>
+                            @endif
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>   
+        <div class="inicio-container2">    
+            <div class="navbar-bottom">
+                <div class="navbar-left">
+                    <a href="/" class="logo">
+                        <img src="{{ asset('images/logo_v2.png') }}" alt="Logo" class="logo1">
+                    </a>
+                    <button class="btn-filters">
+                        <img src="{{ asset('images/filtro.svg') }}" alt="Filtros" class="icon-filter">&nbsp;Filtro Avanzado
+                    </button>
+                </div>
+                <div class="navbar-right">
+                    <a href="{{ route('home') }}" class="nav-link">INICIO</a>
+                    <div class="dropdown">
+                        <button class="dropdown-button nav-link">CIUDADES</button>
+                        <div class="dropdown-content">
+                            @php
+                                $ciudadesPorZona = $ciudades->groupBy('zona');
+                                $ordenZonas = ['Zona Norte', 'Zona Centro', 'Zona Sur'];
+                            @endphp
+
+                            @foreach($ordenZonas as $zona)
+                                @if(isset($ciudadesPorZona[$zona]))
+                                    <div class="dropdown-column">
+                                        <p>{{ $zona }}</p>
+                                        @foreach($ciudadesPorZona[$zona] as $ciudad)
+                                            <a href="/escorts-{{ $ciudad->url }}"
+                                                class="ciudad-link text-uppercase">
+                                                {{ $ciudad->nombre }}
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <a href="{{ route('favoritos.show') }}" class="nav-link">FAVORITOS</a>
+                    <a href="{{ route('blog') }}" class="nav-link">BLOG</a>
+                    <a href="{{ route('foro') }}" class="nav-link">FORO ESCORTS </a>
+                </div>
             </div>
         </div>
     </header>
