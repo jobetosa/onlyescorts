@@ -1693,11 +1693,13 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #000;
     height: 325px;
-    position: absolute;
-    right: 246px;
+    position: relative;
+    right: -60px;
     font-family: 'Montserrat', sans-serif;
     z-index: 10;
     text-decoration: none;
+    display: inline-block;
+    top: 20px;
 }
 
 .inicio-featured-price {
@@ -1818,9 +1820,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     border-radius: 4px;
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
-    /* position: absolute; */
-    /* top: 824px; */
-    right: 242px;
+    position: relative;
+    top: 20px;
+    /* right: 242px; */
     z-index: 10;
 }
 
@@ -4665,17 +4667,17 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
     .inicio-featured-card {
         /*width: 189px;*/
-        margin-left: -60px;
-        right: 3px;
+        /* margin-left: -88px; */
+        /* right: -26px; */
     }
 
     .online-panel {
         width: 200px;
-        /* top: 838px; */
-        right: 0px;
+        top: 20px;
+        right: 7px;
         position: relative;
         display: inline-block;
-        margin-top: 336px;
+        /* margin-top: 336px; */
     }
 
     .inicio-container {
@@ -14577,8 +14579,8 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     }
 
     .inicio-featured-card {
-        right: 3px;
-        margin-top: 50px;
+        /* right: 3px; */
+        /* margin-top: 50px; */
     }
 
     /* Panel de chicas online */
@@ -14589,11 +14591,11 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
         position: relative;
-        /* top: 824px; */
-        right: -30px;
+        top: 20px;
+        right: 7px;
         z-index: 10;
         display: inline-block;
-        margin-top: 380px;
+        /* margin-top: 380px; */
     }
 
     /*.escortperfil-nombre {
@@ -14630,7 +14632,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     }
 
     .inicio-featured-card {
-        right: 19px;
+        /* right: 19px; */
     }
 
     /* Panel de chicas online */
@@ -14641,11 +14643,11 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
         position: relative;
-        /* top: 380px; */
-        right: -17px;
+        top: 20px;
+        right: 7px;
         z-index: 10;
         display: inline-block;
-        margin-top: 330px;
+        /* margin-top: 330px; */
     }
 
     .escortperfil-nombre {
@@ -14693,8 +14695,8 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     }
 
     .inicio-featured-card {
-        right: 35px;
-        margin-top: 50px;
+        /* right: 35px; */
+        /* margin-top: 50px; */
     }
 
     /* Panel de chicas online */
@@ -14706,9 +14708,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         font-family: 'Montserrat', sans-serif;
         position: relative;
         margin-top: 20px;
-        right: -10px;
+        right: 7px;
         z-index: 10;
-        margin-top: 379px;
+        top: 0px;
     }
 
     .escortperfil-nombre {
@@ -14765,7 +14767,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         padding: 10px;
         font-family: 'Montserrat', sans-serif;
         position: relative;
-        margin-top: 20px;
+        /* margin-top: 20px; */
         right: 5px;
         z-index: 10;
         /* margin-bottom: 40px; */
