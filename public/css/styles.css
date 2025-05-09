@@ -13,6 +13,11 @@ html {
     border-bottom: 4px solid rgb(226 83 82);
 }
 */
+.dropdown-column p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
 .gradient {
     background: linear-gradient(180deg, transparent, #ebebeb);
     bottom: 0;
