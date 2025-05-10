@@ -2090,6 +2090,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-left: -106px; 
 }
 
 .escortperfil-nombre {
@@ -8727,8 +8728,7 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         bottom: 20px;
         width: 100%;
         display: flex;
-        flex-direction: column;    
-        margin-left: -106px; 
+        flex-direction: column;
 }
 
 .escortperfil-nombre {
