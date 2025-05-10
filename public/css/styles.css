@@ -5609,6 +5609,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³viles (480px y menor) */
 @media screen and (max-width: 480px) {
+    .escortperfil-box-info {
+        margin-left: 0px
+    }
     .navbar-bottom {
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         --tw-shadow: 0 0 4px rgba(0, 0, 0, .4);
@@ -8724,7 +8727,8 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
         bottom: 20px;
         width: 100%;
         display: flex;
-        flex-direction: column;     
+        flex-direction: column;    
+        margin-left: -106px; 
 }
 
 .escortperfil-nombre {
