@@ -200,7 +200,7 @@ i.far.fa-share-square{
     position: relative;
     margin-top: -112px;
     width: 206px;
-    margin-right: 150px;
+    margin-right: 100px;
 }
 .share-button-n {
     padding: 12px 20px;
@@ -5610,6 +5610,9 @@ video:not(.banner-img):not(.historia-circle video):not(.escortperfil-video):not(
 
 /* MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³viles (480px y menor) */
 @media screen and (max-width: 480px) {
+    .redes-sociales {
+        margin-right: 112px;
+    }
     .escortperfil-box-info {
         margin-left: 0px
     }
